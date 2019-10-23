@@ -40,6 +40,8 @@ public class GoogleSearchTests<waitForResultsElement> {
         ExpectedCondition condition = ExpectedConditions.presenceOfElementLocated(elementToWait);
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
         webDriverWait.until(condition);
+        // WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+         // .until(ExpectedConditions.presenceOfElementLocated(By.id("myDynamicElement")
 
     }
     private void assertResultsPage() {
