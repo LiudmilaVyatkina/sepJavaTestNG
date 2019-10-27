@@ -40,12 +40,12 @@ public class Checkboxes {
         String input1CheckedValue = input1.getAttribute("checked");
 
         if (input1CheckedValue == null) {
-            input1.click();
+           input1.click();
 
         }
 
         input1CheckedValue = input1.getAttribute("checked");
-                Assert.assertEquals(input1CheckedValue, "true");
+                Assert.assertEquals(input1CheckedValue, "true", "input attribute is equal " + input1CheckedValue);
 
     }
 
