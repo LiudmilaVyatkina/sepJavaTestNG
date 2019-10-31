@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -20,15 +21,16 @@ public class GoogleSearchTests<waitForResultsElement> {
     public void AfterSuite() {
      //   driver.quit();
     }
+     @Parameters({ "testDataQuery" })
 
     @Test
-    public void test0001() {
+    public void test0001(String param1) {
         System.setProperty("webdriver.gecko.driver", "/Users/admin/IdeaProjects/sepJavaTestNG/src/test/resources/drivers/geckodriver");
 
 
     openBrowser();
     novigateToMainPage();
-    typeQuory();
+    typeQuery(param1);
     submitSerach();
     waitForResultsElement();
     assertResultsPage();
@@ -60,10 +62,10 @@ public class GoogleSearchTests<waitForResultsElement> {
         driver.findElement(By.cssSelector(selector)).submit();
     }
 
-    private void typeQuory() {
+    private void typeQuery(String queryToType) {
         String selector = ".gLFyf";
         WebElement webElement = driver.findElement(By.cssSelector(selector));
-        webElement.sendKeys( "Portnov Computer School");
+        webElement.sendKeys( queryToType);
 
     }
 
